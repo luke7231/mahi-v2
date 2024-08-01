@@ -21,7 +21,7 @@ export const storeRouter = trpc.router({
       });
     }),
   delete: trpc.procedure
-    .input(z.object({ id: z.string() }))
+    .input(z.object({ id: z.number() }))
     .mutation(({ input }) => {
       return prisma.store.delete({
         where: {
@@ -32,7 +32,7 @@ export const storeRouter = trpc.router({
   update: trpc.procedure
     .input(
       z.object({
-        id: z.string(),
+        id: z.number(),
         lat: z.number(),
         lng: z.number(),
         title: z.string(),
