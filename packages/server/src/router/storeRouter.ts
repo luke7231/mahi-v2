@@ -4,9 +4,6 @@ import { input, z } from "zod";
 
 export const storeRouter = trpc.router({
   list: trpc.procedure.query(({ ctx }) => {
-    console.log(ctx.user);
-    // const todos = await prisma.todo.findMany()
-    // return todos
     return prisma.store.findMany();
   }),
   create: trpc.procedure
